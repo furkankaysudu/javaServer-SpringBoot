@@ -60,10 +60,18 @@ public class TextService {
                     intersection.add(controlWord);
                     counter++;
                     controlWord = getControlWord(wordList1, counter);
-                    afterControlWord = getControlWord(wordList1, (counter + 1));
+
+                    if (wordList1.size() != counter) {
+                        afterControlWord = getControlWord(wordList1, (counter + 1));
+                    }
+                    else {
+                        intersection.clear();
+                        return intersection;
+                    }
 
                 } else if (i == 1) {
                     intersection.add(controlWord);
+                    intersection.add(afterControlWord);
                 } else {
                     intersection.clear();
                 }
